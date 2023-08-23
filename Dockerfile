@@ -10,11 +10,10 @@ COPY GuessThatSongFrontend/package.json GuessThatSongFrontend/package-lock.json 
 # Install project dependencies
 RUN npm install
 
-# Copy the entire project directory into the container
-COPY GuessThatSongFrontend .
+# COPY GuessThatSongFrontend . ---> This line copies the entire project directory into the container, but since the.json and package-lock.json package files were already copied, we don't need to copy again. Removing this line.
 
 # Expose port 3000 for the application
 EXPOSE 3000
 
 # Start the application
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "start"
