@@ -4,7 +4,7 @@ import Navbar from "./navigation.header";
 import Checkbox from "./checkbox.component";
 
 function createPub(pub) {
-    const apiUrl = 'http://192.168.0.104:8000/api/pubs/createpub';
+    const apiUrl = 'https://guessthatsongbackend-fmijsters.b4a.run:8000/api/pubs/createpub';
     axios.post(apiUrl, pub, {headers: {Authorization: "Token " + localStorage.getItem('authToken')}})
         .then(response => {
             console.log(response.data)

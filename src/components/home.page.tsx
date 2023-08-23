@@ -4,7 +4,7 @@ import "./pages.css";
 import Navbar from "./navigation.header";
 
 function getPubs(setPubs) {
-    const apiUrl = 'http://192.168.0.104:8000/api/pubs';
+    const apiUrl = 'https://guessthatsongbackend-fmijsters.b4a.run:8000/api/pubs';
 
     axios.get(apiUrl)
         .then(response => {
@@ -16,7 +16,7 @@ function getPubs(setPubs) {
 }
 
 function checkPasswordCorrect(pubId, password) {
-    const apiUrl = 'http://192.168.0.104:8000/api/pubs/join';
+    const apiUrl = 'https://guessthatsongbackend-fmijsters.b4a.run:8000/api/pubs/join';
     const authToken = localStorage.getItem('authToken');
     let headers = {headers: {Authorization: "Token " + localStorage.getItem('authToken')}}
     axios.post(apiUrl, {
@@ -65,7 +65,7 @@ function HomePage() {
 }
 
 function deletePub(id) {
-    const apiUrl = 'http://192.168.0.104:8000/api/pubs/delete';
+    const apiUrl = 'https://guessthatsongbackend-fmijsters.b4a.run:8000/api/pubs/delete';
     axios.post(apiUrl, {id: id}, {headers: {Authorization: "Token " + localStorage.getItem('authToken')}})
         .then(response => {
             window.location.reload()

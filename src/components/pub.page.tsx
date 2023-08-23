@@ -35,7 +35,7 @@ const getInterpolatedColor = (percentage) => {
 };
 
 function getPub(pubId, setPub) {
-    const apiUrl = 'http://192.168.0.104:8000/api/pubs/get/' + pubId + "/";
+    const apiUrl = 'https://guessthatsongbackend-fmijsters.b4a.run:8000/api/pubs/get/' + pubId + "/";
     axios.get(apiUrl)
         .then(response => {
             setPub(response.data);

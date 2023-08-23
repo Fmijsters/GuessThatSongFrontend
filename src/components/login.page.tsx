@@ -10,7 +10,7 @@ function LoginPage() {
 
     const handleLogin = () => {
         axios
-            .post('http://192.168.0.104:8000/api/users/login', {username, password})
+            .post('https://guessthatsongbackend-fmijsters.b4a.run:8000/api/users/login', {username, password})
             .then(response => {
                 const token = response.data.token;
                 localStorage.setItem('authToken', token);

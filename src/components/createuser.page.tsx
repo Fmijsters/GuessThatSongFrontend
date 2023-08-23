@@ -8,7 +8,7 @@ function createUser(user) {
         return
     }
 
-    const apiUrl = 'http://192.168.0.104:8000/api/users/create';
+    const apiUrl = 'https://guessthatsongbackend-fmijsters.b4a.run:8000/api/users/create';
     axios.post(apiUrl, user)
         .then(response => {
             console.log(response.data)

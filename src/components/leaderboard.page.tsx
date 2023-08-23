@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 function getRecords(setRecords) {
-    const apiUrl = 'http://192.168.0.104:8000/api/tracks/records/get';
+    const apiUrl = 'https://guessthatsongbackend-fmijsters.b4a.run:8000/api/tracks/records/get';
     axios.get(apiUrl)
         .then(response => {
             console.log(response.data.records)
@@ -15,7 +15,7 @@ function getRecords(setRecords) {
 }
 
 function getTimeRecords(setTimeRecords) {
-    const apiUrl = 'http://192.168.0.104:8000/api/tracks/records/time/get';
+    const apiUrl = 'https://guessthatsongbackend-fmijsters.b4a.run:8000/api/tracks/records/time/get';
     axios.get(apiUrl)
         .then(response => {
             setTimeRecords(response.data.records);
