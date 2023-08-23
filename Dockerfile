@@ -5,13 +5,16 @@ FROM node:16-alpine3.17
 WORKDIR /app
 
 # Copy the package.json and package-lock.json files
-COPY GuessThatSongFrontend/package.json GuessThatSongFrontend/package-lock.json ./
+COPY package.json package-lock.json ./
 
 # Install project dependencies
 RUN npm install
+
+# Copy the entire project directory into the container
+COPY . .
 
 # Expose port 3000 for the application
 EXPOSE 3000
 
 # Start the application
-CMD ["npm", "run", "start"
+CMD ["npm", "run", "start"]
