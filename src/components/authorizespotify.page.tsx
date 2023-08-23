@@ -1,6 +1,6 @@
 function AuthorizeSpotifyPage() {
     const clientId = 'ba70b057fcb54535a6c808c38973989c';
-    const redirectUri = 'http://localhost:3000/spotify/authorize';
+    const redirectUri = 'https://guessthattunefrontend-fmijsters.b4a.run/spotify/authorize';
     const urlParams = new URLSearchParams(window.location.search);
     let code = urlParams.get('code');
     console.log(code)
