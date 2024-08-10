@@ -50,8 +50,7 @@ class WebSocketComponent extends Component<socketProps, socketState> {
             paused,
             setCallback
         } = this.props;
-
-        const socket = new WebSocket('ws://192.168.0.104:8000/ws/' + this.props.randomString + '/' + +pubId + '/');
+        const socket = new WebSocket('ws://7.tcp.eu.ngrok.io:17201/ws/' + this.props.randomString + '/' + +pubId + '/');
 
         socket.onopen = () => {
             console.log('WebSocket connection opened', this.props.randomString);

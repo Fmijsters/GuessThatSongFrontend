@@ -4,8 +4,8 @@ import Navbar from "./navigation.header";
 import Checkbox from "./checkbox.component";
 
 function createPub(pub) {
-    const apiUrl = 'https://guessthatsongbackend-fmijsters.b4a.run:8000/api/pubs/createpub';
-    axios.post(apiUrl, pub, {headers: {Authorization: "Token " + localStorage.getItem('authToken')}})
+    const apiUrl = 'https://a6c4-2a02-a452-135f-1-f530-5ce4-c647-d2d9.ngrok-free.app/api/pubs/createpub';
+    axios.post(apiUrl, pub, {headers: {"ngrok-skip-browser-warning": "69420",Authorization: "Token " + localStorage.getItem('authToken')}})
         .then(response => {
             console.log(response.data)
             if (response.data.id)
@@ -19,7 +19,7 @@ function createPub(pub) {
 function searchArtistsOrTracks(query, setSearchResults, type) {
     const apiUrl = "https://api.spotify.com/v1/search"
     const at = localStorage.getItem("access_token")
-    axios.get(apiUrl, {params: {q: query, type: type, limit: 20}, headers: {Authorization: "Bearer " + at}})
+    axios.get(apiUrl, {params: {q: query, type: type, limit: 20}, headers: {"ngrok-skip-browser-warning": "69420",Authorization: "Bearer " + at}})
         .then(searchResults => {
             console.log(searchResults)
             let results = searchResults.data[type + 's'].items.map(result => {

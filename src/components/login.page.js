@@ -10,7 +10,7 @@ function LoginPage() {
 
     const handleLogin = () => {
         axios
-            .post('https://guessthatsongbackend-fmijsters.b4a.run:8000/api/users/login', {username, password})
+            .post('https://a6c4-2a02-a452-135f-1-f530-5ce4-c647-d2d9.ngrok-free.app/api/users/login', {username, password})
             .then(response => {
                 const token = response.data.token;
                 localStorage.setItem('authToken', token);
