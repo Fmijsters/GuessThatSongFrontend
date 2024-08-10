@@ -6,7 +6,7 @@ function AuthorizeSpotifyPage() {
 
     const clientId = 'ba70b057fcb54535a6c808c38973989c';
     // const redirectUri = 'http://localhost:3000/spotify/authorize';
-    const redirectUri = 'http://localhost:3000/spotify/authorize';
+    const redirectUri = `${process.env.REACT_APP_FRONTEND_URL}/spotify/authorize`;
     const urlParams = new URLSearchParams(window.location.search);
     let code = urlParams.get('code');
     console.log(code)
