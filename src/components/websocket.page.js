@@ -1,34 +1,34 @@
 import {Component} from 'react';
 
 
-interface socketProps {
-    pubId: any,
-    randomString: any,
-    setTime: (message) => void,
-    setRoundOver: (message) => void,
-    setSong: (message) => void,
-    setArtists: (message) => void,
-    setPreviewUrl: (message) => void,
-    setScoreBoard: (message) => void,
-    setEndRoundInfo: (message) => void,
-    playConfetti: () => void,
-    setAlert: (message) => void,
-    canPlayConfetti: boolean,
-    setRoundInfo: (message) => void,
-    setPaused: (message) => void,
-    setSeek: (message) => void,
-    paused: boolean,
-    setCallback: (message) => void
-}
+// interface socketProps {
+//     pubId: any,
+//     randomString: any,
+//     setTime: (message) => void,
+//     setRoundOver: (message) => void,
+//     setSong: (message) => void,
+//     setArtists: (message) => void,
+//     setPreviewUrl: (message) => void,
+//     setScoreBoard: (message) => void,
+//     setEndRoundInfo: (message) => void,
+//     playConfetti: () => void,
+//     setAlert: (message) => void,
+//     canPlayConfetti: boolean,
+//     setRoundInfo: (message) => void,
+//     setPaused: (message) => void,
+//     setSeek: (message) => void,
+//     paused: boolean,
+//     setCallback: (message) => void
+// }
+//
+// interface socketState {
+//     messageInput: string,
+//     socket: any,
+//     shouldConfetti: boolean,
+//     paused: boolean,
+// }
 
-interface socketState {
-    messageInput: string,
-    socket: any,
-    shouldConfetti: boolean,
-    paused: boolean,
-}
-
-class WebSocketComponent extends Component<socketProps, socketState> {
+class WebSocketComponent extends Component {
 
     constructor(props) {
         super(props);
@@ -50,7 +50,7 @@ class WebSocketComponent extends Component<socketProps, socketState> {
             paused,
             setCallback
         } = this.props;
-        const socket = new WebSocket('ws://7.tcp.eu.ngrok.io:17201/ws/' + this.props.randomString + '/' + +pubId + '/');
+        const socket = new WebSocket(`wss://${process.env.REACT_APP_WEBSOCKET_URL}/ws/1` + this.props.randomString + '/' + +pubId + '/');
 
         socket.onopen = () => {
             console.log('WebSocket connection opened', this.props.randomString);
@@ -159,7 +159,7 @@ class WebSocketComponent extends Component<socketProps, socketState> {
         }
     }
 
-    componentWillReceiveProps(nextProps: Readonly<socketProps>, nextContext: any) {
+    componentWillReceiveProps(nextProps, nextContext) {
         this.setState({paused: nextProps.paused})
     }
 

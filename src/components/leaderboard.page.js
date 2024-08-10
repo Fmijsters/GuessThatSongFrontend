@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 function getRecords(setRecords) {
-    const apiUrl = 'https://a6c4-2a02-a452-135f-1-f530-5ce4-c647-d2d9.ngrok-free.app/api/tracks/records/get';
+    const apiUrl = process.env.REACT_APP_BACKEND_URL +'/api/tracks/records/get';
     axios.get(apiUrl,{headers:{"ngrok-skip-browser-warning": "69420"}})
         .then(response => {
             console.log(response.data.records)
@@ -15,7 +15,7 @@ function getRecords(setRecords) {
 }
 
 function getTimeRecords(setTimeRecords) {
-    const apiUrl = 'https://a6c4-2a02-a452-135f-1-f530-5ce4-c647-d2d9.ngrok-free.app/api/tracks/records/time/get';
+    const apiUrl = process.env.REACT_APP_BACKEND_URL +'/api/tracks/records/time/get';
     axios.get(apiUrl,{headers:{"ngrok-skip-browser-warning": "69420"}})
         .then(response => {
             setTimeRecords(response.data.records);

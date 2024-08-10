@@ -8,7 +8,7 @@ function createUser(user) {
         return
     }
 
-    const apiUrl = 'https://a6c4-2a02-a452-135f-1-f530-5ce4-c647-d2d9.ngrok-free.app/api/users/create';
+    const apiUrl = process.env.REACT_APP_BACKEND_URL + '/api/users/create';
     axios.post(apiUrl, user,{params:{headers:{"ngrok-skip-browser-warning": "69420"}}})
         .then(response => {
             console.log(response.data)

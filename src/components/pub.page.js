@@ -35,7 +35,7 @@ const getInterpolatedColor = (percentage) => {
 };
 
 function getPub(pubId, setPub) {
-    const apiUrl = 'https://a6c4-2a02-a452-135f-1-f530-5ce4-c647-d2d9.ngrok-free.app/api/pubs/get/' + pubId + "/";
+    const apiUrl = process.env.REACT_APP_BACKEND_URL +'/api/pubs/get/' + pubId + "/";
     axios.get(apiUrl,{headers:{"ngrok-skip-browser-warning": "69420"}})
         .then(response => {
             setPub(response.data);

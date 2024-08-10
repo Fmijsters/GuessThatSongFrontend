@@ -4,7 +4,7 @@ import "./pages.css";
 import Navbar from "./navigation.header";
 
 function getPubs(setPubs) {
-    const apiUrl = 'https://a6c4-2a02-a452-135f-1-f530-5ce4-c647-d2d9.ngrok-free.app/api/pubs';
+    const apiUrl = process.env.REACT_APP_BACKEND_URL +'/api/pubs';
 
     axios.get(apiUrl,{headers:{"ngrok-skip-browser-warning": "69420"}})
         .then(response => {
@@ -16,7 +16,7 @@ function getPubs(setPubs) {
 }
 
 function checkPasswordCorrect(pubId, password) {
-    const apiUrl = 'https://a6c4-2a02-a452-135f-1-f530-5ce4-c647-d2d9.ngrok-free.app/api/pubs/join';
+    const apiUrl = process.env.REACT_APP_BACKEND_URL +'/api/pubs/join';
     const authToken = localStorage.getItem('authToken');
     let headers = {headers: {Authorization: "Token " + localStorage.getItem('authToken'),"ngrok-skip-browser-warning": "69420"}}
     axios.post(apiUrl, {
@@ -65,7 +65,7 @@ function HomePage() {
 }
 
 function deletePub(id) {
-    const apiUrl = 'https://a6c4-2a02-a452-135f-1-f530-5ce4-c647-d2d9.ngrok-free.app/api/pubs/delete';
+    const apiUrl = process.env.REACT_APP_BACKEND_URL +'/api/pubs/delete';
     axios.post(apiUrl, {id: id}, {headers: {Authorization: "Token " + localStorage.getItem('authToken'),"ngrok-skip-browser-warning": "69420"}})
         .then(response => {
             window.location.reload()

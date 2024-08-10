@@ -4,7 +4,7 @@ import Navbar from "./navigation.header";
 import Checkbox from "./checkbox.component";
 
 function createPub(pub) {
-    const apiUrl = 'https://a6c4-2a02-a452-135f-1-f530-5ce4-c647-d2d9.ngrok-free.app/api/pubs/createpub';
+    const apiUrl = process.env.REACT_APP_BACKEND_URL +'/api/pubs/createpub';
     axios.post(apiUrl, pub, {headers: {"ngrok-skip-browser-warning": "69420",Authorization: "Token " + localStorage.getItem('authToken')}})
         .then(response => {
             console.log(response.data)
@@ -143,7 +143,7 @@ function generateRecommendations(selectedSeeds, setTrackList, tracklist, minPopu
         })
 }
 
-function addPlaylistSongsToSongList(href: string, setTrackList, tracklist) {
+function addPlaylistSongsToSongList(href, setTrackList, tracklist) {
     let at = localStorage.getItem("access_token")
     axios.get(href, {params: {limit: 100}, headers: {Authorization: "Bearer " + at}}).then(result => {
         let newTrackList = []
